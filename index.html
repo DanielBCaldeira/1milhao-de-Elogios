@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Conquista</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f0;
+            color: #ff4da6;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #ff99cc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff66b2;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+
+        .compliments {
+            max-height: 200px;
+            overflow-y: auto;
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ff99cc;
+            background-color: #fff0f5;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Então pra te conquistar eu preciso te elogiar 1 milhão de vezes?</h1>
+
+    <div class="buttons">
+        <button id="btnSim">Sim</button>
+        <button id="btnNao">Não</button>
+    </div>
+
+    <div id="result" class="result hidden"></div>
+
+    <script>
+        const complimentsPart1 = [
+            "Você é", "Seu sorriso é", "Seus olhos são", "Seu jeito único é",
+            "Sua risada é", "Seu abraço é", "Sua beleza é", 
+            "Seu coração é", "Seu charme é", "Sua inteligência é"
+        ];
+
+        const complimentsPart2 = [
+            "maravilhosa!", "encantadora!", "perfeita!", 
+            "incrível!", "radiante!", "linda de verdade!",
+            "única!", "admirável!", "especial!", "a melhor!"
+        ];
+
+        function generateRandomCompliment() {
+            const part1 = complimentsPart1[Math.floor(Math.random() * complimentsPart1.length)];
+            const part2 = complimentsPart2[Math.floor(Math.random() * complimentsPart2.length)];
+            return `${part1} ${part2}`;
+        }
+
+        document.getElementById('btnSim').addEventListener('click', function () {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<div class="compliments"></div>';
+            const complimentsDiv = resultDiv.querySelector('.compliments');
+            
+            let generatedCount = 0;
+            const totalCompliments = 1000000;
+
+            function generateCompliments() {
+                if (generatedCount >= totalCompliments) return;
+
+                for (let i = 0; i < 100 && generatedCount < totalCompliments; i++) {
+                    const compliment = document.createElement('p');
+                    compliment.textContent = `${generatedCount + 1}: ${generateRandomCompliment()}`;
+                    complimentsDiv.appendChild(compliment);
+                    generatedCount++;
+                }
+                
+                if (generatedCount < totalCompliments) {
+                    setTimeout(generateCompliments, 10);
+                }
+            }
+
+            generateCompliments();
+            resultDiv.classList.remove('hidden');
+        });
+
+        document.getElementById('btnNao').addEventListener('click', function () {
+            const resultDiv = document.getElementById('result');
+            resultDiv.textContent = 'Então já conquistei?';
+            resultDiv.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
