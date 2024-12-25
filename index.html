@@ -47,9 +47,29 @@
             font-size: 18px;
             color: #01579b;
         }
+        /* Imagem no topo */
+        .top-images {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+        }
+        .top-images img {
+            width: 100px;
+            height: auto;
+        }
     </style>
 </head>
 <body>
+    <!-- Imagens no topo -->
+    <div class="top-images">
+        <img src="https://github.com/seu-usuario/seu-repositorio/blob/main/imagens/rosa%20azul.png?raw=true" alt="Imagem rosa azul esquerda">
+        <img src="https://github.com/seu-usuario/seu-repositorio/blob/main/imagens/rosa%20azul.png?raw=true" alt="Imagem rosa azul direita">
+    </div>
+
     <h1>Sempre que precisar ouvir um elogio meu ou quando estiver triste, só vir aqui. Eu lhe darei milhares para lhe animar.</h1>
     <p>Precisa de um elogio?</p>
     <div class="button-container">
@@ -64,102 +84,14 @@
             "Você é simplesmente maravilhosa!",
             "Seu sorriso ilumina qualquer dia.",
             "Você tem uma força incrível que admiro muito.",
-            "Tudo em você é especial.",
-            "Você faz o mundo ser um lugar melhor só por existir.",
-            "Seu jeito de ver a vida é inspirador.",
-            "Você é uma pessoa com um coração gigantesco!",
-            "Sua risada é contagiante e alegra qualquer lugar.",
-            "Você é incrivelmente talentosa no que faz.",
-            "Admiro sua coragem e determinação.",
-            "Você tem uma sabedoria que impressiona a todos.",
-            "Seu carinho com as pessoas é algo lindo de se ver.",
-            "Você transforma o dia de qualquer um para melhor.",
-            "Seu olhar transmite uma paz inexplicável.",
-            "Você é única e especial em todos os sentidos.",
-            "Seu espírito aventureiro é cativante.",
-            "Você tem uma alegria de viver que contagia a todos.",
-            "Sua bondade é uma inspiração para todos ao seu redor.",
-            "Adoro como você encontra beleza nas pequenas coisas.",
-            "Você tem uma energia incrível que ilumina tudo.",
-            "Seu senso de humor é maravilhoso e único.",
-            "Você tem uma força interior que é admirável.",
-            "Sua empatia com as pessoas é impressionante.",
-            "Você é uma inspiração para todos que te conhecem.",
-            "Seu sorriso é capaz de curar qualquer tristeza.",
-            "Você é dona de uma inteligência brilhante.",
-            "Seu charme é encantador e inesquecível.",
-            "Você é a personificação da gentileza e do amor.",
-            "Sua determinação é algo que todos deveriam seguir.",
-            "Você é um raio de luz nos dias nublados.",
-            "Seu estilo é único e cheio de personalidade.",
-            "Admiro sua capacidade de enfrentar desafios.",
-            "Você é um exemplo de integridade e honestidade.",
-            "Sua criatividade não tem limites.",
-            "Você tem um dom especial de alegrar as pessoas.",
-            "Sua presença é sempre calorosa e acolhedora.",
-            "Você é um presente na vida de quem te conhece.",
-            "Sua determinação para alcançar seus sonhos é incrível.",
-            "Você é alguém que faz a diferença no mundo.",
-            "Seu jeito de ser é inspirador e admirável.",
-            "Você tem uma luz que brilha intensamente.",
-            "Sua generosidade é algo raro e precioso.",
-            "Você é linda por dentro e por fora.",
-            "Sua amizade é algo que todos deveriam ter.",
-            "Você tem um dom especial para alegrar o ambiente.",
-            "Sua voz tem o poder de acalmar qualquer um.",
-            "Você é incrivelmente determinada e focada.",
-            "Admiro sua capacidade de ver o lado bom da vida.",
-            "Você é o tipo de pessoa que o mundo precisa mais.",
-            "Seu sorriso ilumina qualquer ambiente.",
-            "Você é um verdadeiro exemplo de amor e bondade.",
-            "Sua inteligência é uma inspiração para todos.",
-            "Você tem um coração puro e generoso.",
-            "Seu jeito de ser é simplesmente encantador.",
-            "Você é uma obra de arte em forma de pessoa.",
-            "Sua sensibilidade é algo muito especial.",
-            "Você é uma pessoa que transmite muita paz.",
-            "Admiro como você lida com as dificuldades.",
-            "Você tem um jeito único de ver o mundo.",
-            "Sua energia é sempre positiva e contagiante.",
-            "Você é a definição de elegância e graça.",
-            "Seu senso de justiça é admirável.",
-            "Você é uma pessoa que faz a diferença.",
-            "Sua felicidade é algo contagiante.",
-            "Você tem um talento incrível para encantar as pessoas.",
-            "Sua luz interior é tão forte que ilumina os outros.",
-            "Você é uma pessoa cheia de esperança e otimismo.",
-            "Seu sorriso é o reflexo da sua alma linda.",
-            "Você tem o dom de trazer alegria para os outros.",
-            "Sua amizade é algo que eu sempre vou valorizar.",
-            "Você é alguém que inspira confiança e amor.",
-            "Admiro sua capacidade de transformar situações difíceis.",
-            "Você é uma pessoa que transmite muita sabedoria.",
-            "Seu entusiasmo pela vida é admirável.",
-            "Você é linda do jeito que você é.",
-            "Sua bondade é algo que sempre me toca.",
-            "Você tem um coração enorme e cheio de amor.",
-            "Adoro como você é tão autêntica e verdadeira.",
-            "Sua presença é sempre muito especial.",
-            "Você é uma pessoa cheia de talento e criatividade.",
-            "Admiro como você é sempre tão dedicada.",
-            "Você tem um brilho nos olhos que é único.",
-            "Sua paciência e compreensão são admiráveis.",
-            "Você é uma pessoa cheia de compaixão e empatia.",
-            "Adoro como você tem o poder de me fazer sorrir.",
-            "Você é uma pessoa que merece todas as coisas boas da vida."
+            // Adicione mais elogios aqui
         ];
 
         const frases = [
-            "A distância nunca será um obstáculo, pois o que sentimos é maior do que qualquer quilômetro.",
-            "Eu não tenho medo de me magoar, o que importa é o que vivemos e aprendemos juntos, a distância não diminui isso.",
-            "O tempo e a distância são apenas detalhes quando o sentimento é verdadeiro.",
-            "Cada passo que damos é um aprendizado e a distância nunca foi um limite para algo que vale a pena.",
-            "Eu não tenho pressa, vou esperar o tempo que for necessário. O que importa é o que estamos construindo.",
-            "O que realmente importa é o presente que vivemos e não o que o futuro nos reserva. A distância não apaga isso.",
-            "A distância pode ser longa, mas o que sinto por você é imensurável e vai além de qualquer barreira.",
-            "Não se preocupe com a distância, estou aqui para você, sem expectativas, só vivendo o que é bom.",
-            "A distância só existe entre os corpos, mas os corações podem estar sempre próximos.",
-            "Eu não me importo com a distância, porque o que realmente conta é a nossa conexão e o que temos para viver."
+            "Não se preocupe, a distância não vai impedir de fazer você feliz.",
+            "Eu entendo a insegurança, mas estou disposto a ir além para te conhecer.",
+            "A distância não é um obstáculo, é uma chance de valorizar cada momento.",
+            // Adicione mais frases aqui
         ];
 
         function showElogio(answer) {
@@ -169,7 +101,7 @@
                 responseDiv.textContent = randomElogio;
             } else {
                 const randomFrase = frases[Math.floor(Math.random() * frases.length)];
-                responseDiv.innerHTML = `Mesmo assim, você merece o melhor elogio por ser tão incrível:<br><strong>${randomFrase}</strong>`;
+                responseDiv.innerHTML = `<strong>${randomFrase}</strong>`;
             }
         }
     </script>
