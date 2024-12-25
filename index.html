@@ -47,24 +47,9 @@
             font-size: 18px;
             color: #01579b;
         }
-        #top-left, #top-right {
-            position: absolute;
-            top: 20px;
-            width: 100px;
-        }
-        #top-left {
-            left: 20px;
-        }
-        #top-right {
-            right: 20px;
-        }
     </style>
 </head>
 <body>
-    <!-- Imagens no topo -->
-    <img id="top-left" src="imagens/rosa azul.png" alt="Imagem Top Esquerda">
-    <img id="top-right" src="imagens/rosa azul.png" alt="Imagem Top Direita">
-
     <h1>Sempre que precisar ouvir um elogio meu ou quando estiver triste, só vir aqui. Eu lhe darei milhares para lhe animar.</h1>
     <p>Precisa de um elogio?</p>
     <div class="button-container">
@@ -101,7 +86,7 @@
             "Sua empatia com as pessoas é impressionante.",
             "Você é uma inspiração para todos que te conhecem.",
             "Seu sorriso é capaz de curar qualquer tristeza.",
-            "Você é inteligente e cheia de ideias brilhantes.",
+            "Você é dona de uma inteligência brilhante.",
             "Seu charme é encantador e inesquecível.",
             "Você é a personificação da gentileza e do amor.",
             "Sua determinação é algo que todos deveriam seguir.",
@@ -164,31 +149,27 @@
             "Você é uma pessoa que merece todas as coisas boas da vida."
         ];
 
-        const frasesTranquilizadoras = [
-            "Não se preocupe, o que importa é o que sentimos agora. A distância nunca vai diminuir o que tenho por você.",
-            "A distância é só um detalhe, o que vale é a sinceridade do que sentimos.",
-            "Eu não tenho medo de tentar e nem de me magoar. O que importa é viver o momento e o que ele nos oferece.",
-            "Nada vai mudar o que eu sinto, não importa a distância. O importante é o que estamos vivendo agora.",
-            "Eu entendo suas inseguranças, mas estou aqui para te apoiar em cada momento, não importa o que aconteça.",
-            "Não se preocupe, a distância só nos fortalece. O que realmente importa é a conexão que temos."
+        const frases = [
+            "A distância nunca será um obstáculo, pois o que sentimos é maior do que qualquer quilômetro.",
+            "Eu não tenho medo de me magoar, o que importa é o que vivemos e aprendemos juntos, a distância não diminui isso.",
+            "O tempo e a distância são apenas detalhes quando o sentimento é verdadeiro.",
+            "Cada passo que damos é um aprendizado e a distância nunca foi um limite para algo que vale a pena.",
+            "Eu não tenho pressa, vou esperar o tempo que for necessário. O que importa é o que estamos construindo.",
+            "O que realmente importa é o presente que vivemos e não o que o futuro nos reserva. A distância não apaga isso.",
+            "A distância pode ser longa, mas o que sinto por você é imensurável e vai além de qualquer barreira.",
+            "Não se preocupe com a distância, estou aqui para você, sem expectativas, só vivendo o que é bom.",
+            "A distância só existe entre os corpos, mas os corações podem estar sempre próximos.",
+            "Eu não me importo com a distância, porque o que realmente conta é a nossa conexão e o que temos para viver."
         ];
 
         function showElogio(answer) {
             const responseDiv = document.getElementById('response');
-
-            // Exibir elogio ou frase
             if (answer === 'sim') {
-                const randomChoice = Math.random() < 0.5 ? 'elogio' : 'frase';
-                if (randomChoice === 'elogio') {
-                    const randomElogio = elogios[Math.floor(Math.random() * elogios.length)];
-                    responseDiv.textContent = randomElogio;
-                } else {
-                    const randomFrase = frasesTranquilizadoras[Math.floor(Math.random() * frasesTranquilizadoras.length)];
-                    responseDiv.innerHTML = `<strong>${randomFrase}</strong>`;
-                }
-            } else {
                 const randomElogio = elogios[Math.floor(Math.random() * elogios.length)];
-                responseDiv.innerHTML = `Mesmo assim, você merece o melhor elogio por ser tão incrível:<br><strong>${randomElogio}</strong>`;
+                responseDiv.textContent = randomElogio;
+            } else {
+                const randomFrase = frases[Math.floor(Math.random() * frases.length)];
+                responseDiv.innerHTML = `Mesmo assim, você merece o melhor elogio por ser tão incrível:<br><strong>${randomFrase}</strong>`;
             }
         }
     </script>
