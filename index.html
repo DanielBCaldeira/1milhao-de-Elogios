@@ -87,23 +87,6 @@
             "Sua empatia com as pessoas é impressionante.",
             "Você é uma inspiração para todos que te conhecem.",
             "Seu sorriso é capaz de curar qualquer tristeza.",
-            "Você é dona de uma inteligência brilhante.",
-            "Seu charme é encantador e inesquecível.",
-            "Você é a personificação da gentileza e do amor.",
-            "Sua determinação é algo que todos deveriam seguir.",
-            "Você é um raio de luz nos dias nublados.",
-            "Seu estilo é único e cheio de personalidade.",
-            "Admiro sua capacidade de enfrentar desafios.",
-            "Você é um exemplo de integridade e honestidade.",
-            "Sua criatividade não tem limites.",
-            "Você tem um dom especial de alegrar as pessoas.",
-            "Sua presença é sempre calorosa e acolhedora.",
-            "Você é um presente na vida de quem te conhece.",
-            "Sua determinação para alcançar seus sonhos é incrível.",
-            "Você é alguém que faz a diferença no mundo.",
-            "Seu jeito de ser é inspirador e admirável.",
-            "Você tem uma luz que brilha intensamente.",
-            "Sua generosidade é algo raro e precioso.",
             "Você é linda por dentro e por fora.",
             "Sua amizade é algo que todos deveriam ter.",
             "Você tem um dom especial para alegrar o ambiente.",
@@ -165,7 +148,7 @@
             "Eu só quero te ver feliz, seja qual for o caminho que a vida nos oferecer.",
             "Eu confio no que temos, não importa a distância que nos separa.",
             "Não se preocupe, estou disposto a enfrentar qualquer desafio por nós.",
-            "A distância não vai impedir de sermos felizes juntos, pode acreditar.",
+            "A distância não vai diminuir o que sentimos, ela só vai tornar tudo mais especial.",
             "Eu sei que a distância é difícil, mas também é uma prova do que podemos conquistar.",
             "Tudo vai dar certo, pois sei que o que sentimos vale a pena.",
             "Eu estou aqui, e a distância não vai mudar isso.",
@@ -174,38 +157,46 @@
             "A distância não vai diminuir o que sentimos, ela só vai tornar tudo mais especial."
         ];
 
-        let elogiosExibidos = [];
-        let frasesExibidas = [];
+        // Função para embaralhar um array
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]]; // Troca os elementos
+            }
+        }
+
+        // Embaralha as listas de elogios e frases
+        shuffleArray(elogios);
+        shuffleArray(frases);
+
+        let elogioIndex = 0;
+        let fraseIndex = 0;
 
         function showElogio(answer) {
             const responseDiv = document.getElementById('response');
 
             if (answer === 'sim') {
-                let randomElogio;
-
-                if (elogiosExibidos.length === elogios.length) {
-                    elogiosExibidos = []; // Reinicia a lista de elogios
+                if (elogioIndex < elogios.length) {
+                    responseDiv.textContent = elogios[elogioIndex];
+                    elogioIndex++;
+                } else {
+                    // Reinicia a sequência dos elogios quando todos forem mostrados
+                    elogioIndex = 0;
+                    shuffleArray(elogios);
+                    responseDiv.textContent = elogios[elogioIndex];
+                    elogioIndex++;
                 }
-
-                do {
-                    randomElogio = elogios[Math.floor(Math.random() * elogios.length)];
-                } while (elogiosExibidos.includes(randomElogio));
-
-                elogiosExibidos.push(randomElogio);
-                responseDiv.textContent = randomElogio;
             } else {
-                let randomFrase;
-
-                if (frasesExibidas.length === frases.length) {
-                    frasesExibidas = []; // Reinicia a lista de frases
+                if (fraseIndex < frases.length) {
+                    responseDiv.innerHTML = `<strong>${frases[fraseIndex]}</strong>`;
+                    fraseIndex++;
+                } else {
+                    // Reinicia a sequência das frases quando todas forem mostradas
+                    fraseIndex = 0;
+                    shuffleArray(frases);
+                    responseDiv.innerHTML = `<strong>${frases[fraseIndex]}</strong>`;
+                    fraseIndex++;
                 }
-
-                do {
-                    randomFrase = frases[Math.floor(Math.random() * frases.length)];
-                } while (frasesExibidas.includes(randomFrase));
-
-                frasesExibidas.push(randomFrase);
-                responseDiv.innerHTML = `<strong>${randomFrase}</strong>`;
             }
         }
     </script>
