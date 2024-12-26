@@ -1,64 +1,59 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu cantinho de elogios</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <title>Elogios</title>
     <style>
         body {
-            font-family: 'Lobster', cursive;
+            font-family: Arial, sans-serif;
+            margin: 20px;
             text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #e0f7fa;
+            background-color: #f0f8ff; /* Azul suave */
+            color: #003366; /* Azul escuro para o texto */
         }
-        h1 {
-            color: #01579b;
-        }
-        p {
-            font-size: 22px;
-            color: #01579b;
-        }
-        .button-container {
-            margin-top: 20px;
-        }
+
         button {
-            margin: 0 10px;
             padding: 10px 20px;
             font-size: 16px;
+            margin: 10px;
             cursor: pointer;
+            background-color: #66b3ff; /* Azul claro */
+            color: white;
             border: none;
             border-radius: 5px;
-            background-color: #4fc3f7;
-            color: white;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease;
         }
+
         button:hover {
-            background-color: #0288d1;
+            background-color: #3399ff; /* Azul mais intenso ao passar o mouse */
         }
-        .response {
+
+        #response {
+            font-size: 20px;
+            font-weight: bold;
             margin-top: 20px;
-            font-size: 18px;
-            color: #01579b;
+            color: #005b99; /* Azul intermediário para as respostas */
+        }
+
+        h1 {
+            color: #0066cc; /* Azul mais forte para o título */
+        }
+
+        p {
+            color: #4d94ff; /* Azul claro para o texto */
         }
     </style>
 </head>
 <body>
 
-    <h1>Sempre que precisar ouvir um elogio meu ou quando estiver triste, só vir aqui. Eu lhe darei milhares para lhe animar.</h1>
-    <p>Precisa de um elogio?</p>
-    <div class="button-container">
-        <button onclick="showElogio('sim')">Sim</button>
-        <button onclick="showElogio('nao')">Não</button>
-    </div>
+    <h1>Você merece um elogio!</h1>
+    <p>Gostaria de ouvir um elogio?</p>
 
-    <div class="response" id="response"></div>
+    <button onclick="showElogio('sim')">Sim</button>
+    <button onclick="showElogio('nao')">Não</button>
+
+    <div id="response"></div>
 
     <script>
         const elogios = [
@@ -187,18 +182,25 @@
                     elogioIndex++;
                 }
             } else {
-                if (fraseIndex < frases.length) {
-                    responseDiv.innerHTML = `<strong>${frases[fraseIndex]}</strong>`;
-                    fraseIndex++;
-                } else {
-                    // Reinicia a sequência das frases quando todas forem mostradas
-                    fraseIndex = 0;
-                    shuffleArray(frases);
-                    responseDiv.innerHTML = `<strong>${frases[fraseIndex]}</strong>`;
-                    fraseIndex++;
-                }
+                // Exibe a mensagem extra antes do elogio
+                responseDiv.innerHTML = "<strong>Mas mesmo assim você merece um elogio por ser tão incrível!</strong>";
+
+                // Atraso para exibir o elogio após a mensagem
+                setTimeout(() => {
+                    if (elogioIndex < elogios.length) {
+                        responseDiv.textContent = elogios[elogioIndex];
+                        elogioIndex++;
+                    } else {
+                        // Reinicia a sequência dos elogios quando todos forem mostrados
+                        elogioIndex = 0;
+                        shuffleArray(elogios);
+                        responseDiv.textContent = elogios[elogioIndex];
+                        elogioIndex++;
+                    }
+                }, 2000); // 2 segundos de atraso
             }
         }
     </script>
+
 </body>
 </html>
